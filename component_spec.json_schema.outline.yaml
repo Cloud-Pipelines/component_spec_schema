@@ -1,0 +1,73 @@
+<ComponentSpec>:
+    name: string
+    description: string
+    metadata:
+        annotations: Map[string, any]
+    inputs: #InputSpec[]
+        <InputSpec[]>:
+            name: string
+            type: TypeSpecType
+            description: string
+            default: string
+            optional: boolean
+            annotations: Map[string, any]
+    outputs: #OutputSpec[]
+        <OutputSpec[]>:
+            name: string
+            type: TypeSpecType
+            description: string
+            annotations: Map[string, any]
+    implementation: #ImplementationType
+        <oneOf>:
+            <ContainerImplementation>:
+                container: #ContainerSpec
+                    image: StringOrPlaceholder
+                    command: #StringOrPlaceholder[]
+                        <oneOf>:
+                            string:
+                            <InputValuePlaceholder>:
+                                inputValue: string
+                            <InputPathPlaceholder>:
+                                inputPath: string
+                            <OutputPathPlaceholder>:
+                                outputPath: string
+                            <ConcatPlaceholder>:
+                                concat: StringOrPlaceholder[]
+                            <IfPlaceholder>:
+                                if:
+                                    cond: IfConditionArgumentType
+                                    then: StringOrPlaceholder[]
+                                    else: StringOrPlaceholder[]
+                    args: StringOrPlaceholder[]
+                    env: Map[str, StringOrPlaceholder]
+            <GraphImplementation>:
+                graph: #GraphSpec
+                    outputValues: Map string -> TaskOutputArgument
+                    tasks: #Map string -> TaskSpec
+                        <TaskSpec>:
+                            componentRef: #ComponentReference
+                                name: string
+                                digest: string
+                                tag: string
+                                url: string
+                                spec: ComponentSpec
+                            arguments: #Map string -> ArgumentType
+                                <ArgumentType>:
+                                    <oneOf>:
+                                        string:
+                                        <GraphInputArgument>:
+                                            graphInput:
+                                                inputName: string
+                                                type: TypeSpecType
+                                        <TaskOutputArgument>:
+                                            taskOutput:
+                                                taskId: string
+                                                outputName: string
+                                                type: TypeSpecType
+                            isEnabled: PredicateType
+                            executionOptions: #ExecutionOptionsSpec
+                                retryStrategy: #RetryStrategySpec
+                                    maxRetries: integer
+                                cachingStrategy: #CachingStrategySpec
+                                    maxCacheStaleness: string
+                            annotations: Map[string, any]
