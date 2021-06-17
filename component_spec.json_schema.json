@@ -296,17 +296,17 @@
 
     "PredicateType": {
       "oneOf": [
-        {"type": "object", "required": ["=="], "properties": {"==":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
-        {"type": "object", "required": ["!="], "properties": {"!=":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
-        {"type": "object", "required": [">"], "properties": {">":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
-        {"type": "object", "required": [">="], "properties": {">=":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
-        {"type": "object", "required": ["<"], "properties": {"<":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
-        {"type": "object", "required": ["<="], "properties": {"<=":  {"$ref": "#/definitions/TwoArgumentOperands"}}},
+        {"type": "object", "required": ["=="], "properties": {"==":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": ["!="], "properties": {"!=":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": [">"], "properties": {">":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": [">="], "properties": {">=":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": ["<"], "properties": {"<":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": ["<="], "properties": {"<=":  {"$ref": "#/definitions/TwoArgumentOperands"}}, "additionalProperties": false},
 
-        {"type": "object", "required": ["and"], "properties": {"and":  {"$ref": "#/definitions/TwoLogicalOperands"}}},
-        {"type": "object", "required": ["or"], "properties": {"or":  {"$ref": "#/definitions/TwoLogicalOperands"}}},
+        {"type": "object", "required": ["and"], "properties": {"and":  {"$ref": "#/definitions/TwoLogicalOperands"}}, "additionalProperties": false},
+        {"type": "object", "required": ["or"], "properties": {"or":  {"$ref": "#/definitions/TwoLogicalOperands"}}, "additionalProperties": false},
 
-        {"type": "object", "required": ["not"], "properties": {"not":  {"$ref": "#/definitions/PredicateType"}}}
+        {"type": "object", "required": ["not"], "properties": {"not":  {"$ref": "#/definitions/PredicateType"}}, "additionalProperties": false}
       ]
     },
 
