@@ -12,7 +12,7 @@
     },
 
     "InputSpec": {
-      "desZcription": "Describes the component input specification",
+      "description": "Describes the component input specification",
       "type": "object",
       "required": ["name"],
       "properties": {
