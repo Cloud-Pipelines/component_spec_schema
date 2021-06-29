@@ -106,6 +106,7 @@
     "IsPresentPlaceholder": {
       "description": "Represents the command-line argument placeholder that will be replaced at run-time by a boolean value specifying whether the caller has passed an argument for the specified optional input.",
       "type": "object",
+      "required": ["isPresent"],
       "properties": {
         "isPresent": {
           "description": "Name of the input.",
