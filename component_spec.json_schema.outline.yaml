@@ -50,6 +50,7 @@
                                 digest: string
                                 tag: string
                                 url: string
+                                text: string
                                 spec: ComponentSpec
                             arguments: #Map string -> ArgumentType
                                 <ArgumentType>:

@@ -221,6 +221,7 @@
         "digest": {"type": "string"},
         "tag": {"type": "string"},
         "url": {"type": "string"},
+        "text": {"type": "string"},
         "spec": {"$ref": "#/definitions/ComponentSpec"}
       },
       "additionalProperties": false
@@ -338,7 +339,7 @@
       },
       "additionalProperties": false
     },
-    
+
     "TaskSpec": {
       "description": "'Task specification. Task is a configured component - a component supplied with arguments and other applied configuration changes.",
       "type": "object",
